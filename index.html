@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap Core CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/business-casual.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+</head>
+
+<body onload="init();">
+
+  <div class="brand">Babel-Art<span class="badge" style="margin: 15px 10px 0;">Alpha V0.0.1</span></div>
+  <div class="address-bar">A simple art sharing application</div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+        <a class="navbar-brand" href="index.html">Babel-Art</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="" data-toggle="modal" data-target="#myModal" id="nav-login">Login</a>
+          </li>
+          <li>
+            <a href="" data-toggle="modal" data-target="#reg-modal" id="nav-register">Register</a>
+          </li>
+          <li>
+            <a href="" id="nav-create">Create</a>
+          </li>
+          <li>
+            <a href="" id="nav-gallery">Gallery</a>
+          </li>
+          <li>
+            <a href="" id="nav-profile" style="display: none">My Profile</a>
+          </li>
+          <li>
+            <a href="" data-toggle="modal" data-target="#help-modal" id="nav-help">Help</a>
+          </li>
+          <li>
+            <a href="https://www.patreon.com/babelart">Patreon</a>
+          </li>
+          <li>
+            <a href="" id="nav-logout" style="display: none">Logout</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </nav>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">User Login</h4>
+    </div>
+    <div class="modal-body">
+    <form>
+      <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <font color="red" id="error"></font>
+    </div>
+    </form>
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary" id="login">Submit</button>
+    </div>
+    </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <div class="modal fade" id="reg-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Registration</h4>
+    </div>
+    <div class="modal-body">
+    <form>
+    <div class="form-group">
+      <label for="firstname">Artist Name</label>
+      <input type="text" class="form-control" id="firstname" placeholder="First Name">
+    </div>
+      <div class="form-group">
+      <label for="email2">Email address</label>
+      <input type="email" class="form-control" id="email2" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <label for="password2">Password</label>
+      <input type="password" class="form-control" id="password2" placeholder="Password">
+    </div>
+    </form>
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary" id="register">Submit</button>
+    </div>
+    </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <div class="modal fade" id="help-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <div>
+      <h2>
+        Here are some useful tips
+      </h2>
+    </div>
+  </div>
+    <div class="modal-body">
+      <h4>
+        Creating art
+      </h4>
+      <span>
+        Use Create New Drawing for a fresh canvas and simply start dragging the mouse across the canvas to paint. Mess around with the given drawing tools and create your own masterpiece.
+      </span>
+      <h4>
+        Saving Your Work
+      </h4>
+      <span>
+        You must login to be able to save your work. If you do not have a profile, fill out the registration form. It is quick and easy and we promise not to send you any junk emails!
+      </span>
+      <h4>
+        Your Profile
+      </h4>
+      <span>
+        Here you can view your artwork, publish or continue on a work in progress.
+      </span>
+      <h4>
+        Publishing Your Work
+      </h4>
+      <span>
+        Once you feel a project is finished, you can publish your work for the world to see. Beware, once a piece of art is published it can no longer be edited.
+      </span>
+      <h4>
+        Gallery
+      </h4>
+      <span>
+        The place where you can view the work of your fellow artists and vote on which pieces you like best. You may even find some of your own art to be among the most popular on the internet!
+      </span>
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+    </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+
+  <div class="row" style="margin-bottom: 10px">
+  <center>
+  <div class="container" id="drawing_canvas" style="display: none;">
+  </div>
+  <center>
+  </div>
+
+  <footer>
+     
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+  <script>
+    $('#login').on('click', function (e) {
+            var email = document.getElementById("exampleInputEmail1").value;
+            var password = document.getElementById("exampleInputPassword1").value;
+            var account_type = document.getElementById("sel1").value;
+            $.post('/login', { 'email': email, 'password' : password}, 
+                function(returnedData){
+                     console.log(returnedData);
+                     if (returnedData != "error" && returnedData.hasOwnProperty('token')){
+                      $("#myModal .close").click()
+                      $('#nav-login').remove();
+                      $('#nav-register').remove();
+                      document.getElementById('nav-logout').style="display: block;";
+                      document.getElementById('error').innerHTML = "";
+                     }else{
+                      document.getElementById('error').innerHTML = "Invalid email or password";
+                     }
+
+            });
+        });
+        $('#register').on('click', function (e) {
+          var firstname = document.getElementById("firstname").value;
+          console.log(firstname);
+          var lastname = document.getElementById("lastname").value;
+          console.log(lastname);
+            var email = document.getElementById("email2").value;
+            console.log(email);
+            var password = document.getElementById("password2").value;
+            var type = document.getElementById("sel2").value;
+            $.post('/register', { 'firstname': firstname, 'lastname': lastname, 'email': email, 'password' : password, 'type': type}, 
+                function(returnedData){
+                     console.log(returnedData);
+            });
+        });
+        $('#nav-logout').on('click', function(e){
+          location.reload();
+        });
+  </script>
+
+</body>
+
+</html>
